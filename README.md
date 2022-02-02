@@ -1,6 +1,6 @@
 # [mediastreamingmesh.io](https://mediastreamingmesh.io/)
 
-![MSM logo](/public/assets/shared/logos/logo-light-horizantal-svg.svg)
+![MSM logo](/public/assets/shared/logos/logo-light-horizontal-svg.svg)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77afb082-feb4-498c-88cc-eff8fea128ba/deploy-status)](https://app.netlify.com/sites/apiclarity/deploys)
 
