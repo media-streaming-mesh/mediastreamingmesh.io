@@ -2,6 +2,7 @@
   "extends": "next/core-web-vitals",
   "rules": {
     "jsx-a11y/alt-text": "off",
+    "react/no-unescaped-entities": "off",
     "react/jsx-no-target-blank": "off",
     "@next/next/no-img-element": "off"
   }
