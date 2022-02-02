@@ -1,0 +1,120 @@
+@use "../variables" as *;
+
+.PrimaryLarge {
+	@include ButtonPrimaryLarge;
+	&Dark {
+		@include ButtonPrimaryLarge;
+		background-color: transparent;
+		border: 2px solid $primary-color-50;
+		color: $primary-color-50;
+	}
+    &Disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+	}
+}
+
+.PrimaryMedium {
+	@include ButtonPrimaryMedium;
+	&Dark {
+		@include ButtonPrimaryMedium;
+		background-color: transparent;
+		border: 2px solid $primary-color-50;
+		color: $primary-color-50;
+		&:hover {
+			background-color: transparent;
+			border: 2px solid $primary-color-50;
+		}
+	}
+    &Disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+	}
+}
+
+.SecondaryLarge {
+	@include ButtonSecondaryLarge;
+
+	&Dark {
+		border: 1px solid $white;
+		color: $white;
+	}
+
+    &Disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+		border: none;
+	}
+}
+
+.SecondaryMedium {
+	@include ButtonSecondaryMedium;
+
+	&Dark {
+		border: 1px solid $white;
+		color: $white;
+	}
+
+    &Disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+		border: none;
+	}
+}
+
+.InputLarge {
+	@include ButtonInputLarge;
+    &Disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+	}
+}
+
+.TextLarge {
+	@include ButtonTextLarge;
+	z-index: 10;
+
+	&CarrotIcon {
+		margin-bottom: 2px;
+		margin-left: 5px;
+		height: 20px;
+		width: 20px;
+	}
+	&Dark {
+		color: $white;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+    &Disabled {
+		color: $gray-60;
+        cursor: default;
+
+	}
+}
+
+.TextMedium {
+	@include ButtonTextMedium;
+
+	&CarrotIcon {
+		margin-bottom: 2px;
+		margin-left: 3px;
+		height: 16px;
+		width: 16px;
+	}
+
+	&Dark {
+		color: $white;
+
+		&:hover {
+			color: $white;
+		}
+	}
+
+    &Disabled {
+		color: $gray-60;
+        
+	}
+}

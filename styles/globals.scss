@@ -1,0 +1,143 @@
+@font-face {
+	font-family: "CiscoSansTTExtraLight";
+	src: url("/fonts/CiscoSansTTExtraLight.ttf");
+	font-weight: 200;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CiscoSansTTLight";
+	src: url("/fonts/CiscoSansTTLight.ttf");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CiscoSansTTLightOblique";
+	src: url("/fonts/CiscoSansTTLightOblique.ttf");
+	font-weight: 300;
+	font-style: oblique;
+}
+
+@font-face {
+	font-family: "CiscoSansTTRegular";
+	src: url("/fonts/CiscoSansTTRegular.ttf");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CiscoSansTTMedium";
+	src: url("/fonts/CiscoSansTTMedium.ttf");
+	// font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CiscoSansTTBold";
+	src: url("/fonts/CiscoSansTTBold.ttf");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "CiscoSansTTHeavy";
+	src: url("/fonts/CiscoSansTTHeavy.ttf");
+	font-weight: 800;
+	font-style: normal;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: "CiscoSansTTLight", sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+/* styles for the lightbox player, including transitions to show and hide */
+#playerLightbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	padding: 0;
+	margin-left: 0;
+	color: white;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.9);
+	border-radius: 5px;
+	z-index: 20;
+	overflow: hidden;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-ms-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+/* show the player */
+.playerShow {
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	-webkit-box-shadow: 5px 5px 5px 5px
+		rgba(151, 151, 151, 0.7);
+	box-shadow: 5px 5px 5px 5px rgba(151, 151, 151, 0.7);
+}
+/* hide the player */
+.playerHide {
+	width: 0;
+	height: 0;
+	padding: 0;
+}
+/* style the close button for the lightbox player */
+.playerClose {
+	cursor: pointer;
+	position: absolute;
+	top: 50px;
+	right: 50px;
+	width: 40px;
+	height: 40px;
+	background: #58585b;
+	border-radius: 100%;
+	border: 1px solid #fff;
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+	font-size: 21px;
+	font-family: CiscoSansTT, sans-serif;
+	font-weight: bold;
+	line-height: 42px;
+}
+.video-js.vjs-thumbnails {
+	width: 100%;
+	max-width: 716.8px;
+	min-height: 400px;
+	margin: 0 auto;
+}
+.brightcove-react-player-loader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+@media only screen and (max-width: 1024px) {
+	.playerClose {
+		top: 30px;
+		right: 15px;
+		width: 30px;
+		height: 30px;
+		font-size: 14px;
+		line-height: 30px;
+	}
+}
+
+

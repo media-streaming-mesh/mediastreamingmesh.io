@@ -1,0 +1,16 @@
+.Avatar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &Image {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+        border-radius: 50px;
+        object-fit: cover;
+    }
+
+    &Name {
+        font-size: 18px;
+    }
+}

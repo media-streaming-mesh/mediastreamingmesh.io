@@ -1,0 +1,263 @@
+@use "../variables" as *;
+
+.Resources {
+	margin-top: -50px;
+	padding-bottom: 70px;
+	@media (max-width: 630px) {
+		// padding-top: 48px;
+		margin-top: -100px;
+	}
+
+	&ColumnContainer {
+		padding-left: 128px;
+		@media (min-width: 1600px) {
+			padding-left: 300px;
+		}
+		@media (min-width: 2000px) {
+			padding-left: 500px;
+		}
+		display: flex;
+		flex-direction: row;
+		// justify-content: center;
+		// padding-top: 49px;
+		padding-bottom: 53px;
+		height: auto;
+		@media (max-width: 1280px) {
+			flex-direction: column;
+			padding-left: 80px;
+			// align-items: center;
+			justify-content: flex-start;
+		}
+		@media (max-width: 640px) {
+			padding-left: 16px;
+		}
+	}
+
+	&ArticleGrid {
+		display: grid;
+		grid-template-columns: repeat(2, 338px);
+		grid-template-rows: repeat(2, 339px);
+		margin-top: 32px;
+		column-gap: 32px;
+		row-gap: 24px;
+		@media (max-width: 1280px) {
+			grid-template-columns: repeat(2, 292px);
+			grid-template-rows: repeat(2, 320px);
+		}
+		@media (max-width: 730px) {
+			grid-template-columns: auto;
+			grid-template-rows: repeat(4, auto);
+			row-gap: 16px;
+		}
+		@media (max-width: 320px) {
+			grid-template-columns: auto;
+			grid-template-rows: repeat(4, auto);
+		}
+	}
+
+	&Left {
+		&Container {
+		}
+
+		&Row {
+			display: flex;
+			margin-top: 32px;
+			@media (max-width: 640px) {
+				flex-direction: column;
+				align-items: center;
+				margin-top: 0;
+			}
+		}
+	}
+
+	&Divider {
+		height: 1425px;
+		width: 1px;
+		background-color: $gray-05;
+		margin: 75px 72px 0 48px;
+		@media (max-width: 1280px) {
+			height: 1px;
+			width: 619px;
+			margin-top: 32px;
+			margin-bottom: 32px;
+			margin-right: 0;
+			margin-left: 0;
+		}
+		@media (max-width: 640px) {
+			width: 292px;
+			margin-top: 16px;
+			margin-bottom: 32px;
+		}
+	}
+
+	&Right {
+		&Container {
+			// margin-top: 90px;
+			margin-top: 32px;
+			@media (max-width: 1280px) {
+				width: 630px;
+				margin-top: 0;
+				display: flex;
+				flex-wrap: wrap;
+				@media (max-width: 640px) {
+					width: 100%;
+					margin-top: 0;
+					padding: 0 16px;
+				}
+			}
+		}
+	}
+
+	&Link {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		&Icon {
+			color: $gray-80;
+			width: 15px;
+			height: 15px;
+			margin-bottom: 5px;
+			margin-right: 9.5px;
+		}
+
+		& p {
+			@include BodyMedium;
+			color: $primary-color-50;
+			&:hover {
+				text-decoration: underline;
+				text-underline-offset: 3px;
+			}
+		}
+	}
+
+	&Article {
+		width: 338px;
+		height: 339px;
+		box-shadow: 0px 12px 48px rgba(27, 28, 29, 0.1);
+
+		&:hover h6 {
+			text-decoration: underline;
+			text-underline-offset: 4px;
+			color: $primary-color-60;
+		}
+		// margin-right: 24px;
+		@media (max-width: 1225px) {
+			width: 292px;
+			height: 320px;
+		}
+		@media (max-width: 330px) {
+			width: 100%;
+			height: 100%;
+		}
+		& img {
+			width: 100%;
+			height: 156px;
+			position: relative;
+			object-fit: cover;
+			@media (max-width: 1225px) {
+				width: 100%;
+				height: 132px;
+			}
+		}
+
+		&ContentContainer {
+			padding: 16px 40px 32px 26px;
+		}
+
+		&Title {
+			@include BodyLarge;
+			margin: 8px 0;
+		}
+
+		&Author {
+			@include BodySmall;
+			color: $gray-80;
+		}
+	}
+
+	&Media {
+		display: flex;
+		margin-bottom: 40px;
+		@media (max-width: 1225px) {
+			margin-bottom: 32px;
+			margin-right: 23px;
+		}
+
+		&:hover .ResourcesMediaTitle {
+			text-decoration: underline;
+			color: $primary-color-60;
+			text-underline-offset: 4px;
+		}
+
+		&Image {
+			width: 113px;
+			height: 94px;
+			margin-right: 16px;
+			& img {
+				border-radius: 17px;
+			}
+			position: relative;
+			@media (max-width: 315px) {
+				width: 80px;
+				height: 70px;
+			}
+		}
+
+		&Content {
+			width: 209px;
+			@media (max-width: 1225px) {
+				width: 163px;
+			}
+		}
+
+		&Title {
+			@include BodyMedium;
+			margin-top: 8px;
+		}
+	}
+}
+
+.HeaderSection {
+	padding-left: 128px;
+	@media (min-width: 1600px) {
+		padding-left: 300px;
+	}
+	@media (min-width: 2000px) {
+		padding-left: 500px;
+	}
+	@media (max-width: 1280px) {
+		padding-left: 80px;
+	}
+	@media (max-width: 640px) {
+		padding: 32px 16px;
+	}
+
+	&Eyebrow {
+		@include BodyLargeBold;
+		margin-bottom: 8px;
+	}
+
+	& h2 {
+		@include H500;
+		margin-bottom: 16px;
+		@media (max-width: 1280px) {
+			@include H400;
+			margin-bottom: 16px;
+		}
+		@media (max-width: 640px) {
+			@include H300;
+			margin-bottom: 16px;
+		}
+
+	}
+
+	&ShortText {
+		@include H100;
+		@media (max-width: 1280px) {
+			width: 60%;
+		}
+		@media (max-width: 640px) {
+			width: 100%;
+		}
+	}
+}

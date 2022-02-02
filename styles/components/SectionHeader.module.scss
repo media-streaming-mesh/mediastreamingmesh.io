@@ -1,0 +1,16 @@
+.SectionHeader {
+	font-size: 3.5rem;
+	color: #333;
+	font-weight: 900;
+	text-align: center;
+	padding-top: 50px;
+    margin: 0;
+    margin-bottom: 2rem;
+
+	@media (max-width: 900px) {
+		font-size: 3rem;
+	}
+	@media (max-width: 400px) {
+		font-size: 2rem;
+	}
+}

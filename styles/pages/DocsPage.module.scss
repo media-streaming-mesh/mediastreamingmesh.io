@@ -1,0 +1,136 @@
+.DocsPage {
+	display: flex;
+	flex-direction: row;
+	height: calc(100vh - 70px);
+	margin-top: -80px;
+
+    &Link {
+        color: #2131af;
+    }
+
+	&List {
+		&Item {
+			list-style-type: disc;
+			line-height: 1.4;
+			padding: 5px 0;
+			font-size: 18px;
+
+			&Ordered {
+				line-height: 1.4;
+				padding: 5px 0;
+				font-size: 18px;
+			}
+
+            &Nested {
+                list-style-type: none;
+                padding: 5px 0;
+				font-size: 18px;
+            }
+		}
+	}
+
+    &Paragraph {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    &Image {
+        width: 100%;
+
+    }
+
+	&SectionHeader {
+		font-size: 20px;
+		line-height: 1.4;
+	}
+	&SectionSubheader {
+		font-size: 20px;
+		font-weight: 600;
+		line-height: 1.4;
+	}
+
+	&CodeBlock {
+		display: block;
+		background-color: #ddd;
+		padding: 5px 10px;
+		font-size: 14px;
+		border-radius: 2px;
+        overflow-x: scroll;
+
+		&Line {
+			margin: 5px;
+
+            &Grid {
+                display: grid;
+                grid-template-columns: 250px 100px 100px 100px 100px;
+            }
+
+			&Commented {
+				font-style: italic;
+			}
+		}
+	}
+}
+
+.TOCSection {
+	background-color: #eee;
+	width: 20vw;
+	padding: 0 20px;
+	color: #333;
+	overflow: scroll;
+	overflow-y: hidden;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
+
+	&Header {
+		font-size: 28px;
+		font-weight: 700;
+	}
+	&Topic {
+		font-size: 20px;
+		font-weight: 500;
+		padding-left: 10px;
+		cursor: pointer;
+	}
+}
+
+.ContentSection {
+	width: 80vw;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	padding-left: 4rem;
+	padding-bottom: 100px;
+	@media (max-width: 900px) {
+		width: 100vw;
+        padding-left: 2rem;
+	}
+	@media (max-width: 450px) {
+        padding-left: 1rem;
+	}
+	&Header {
+		font-size: 38px;
+		color: #333;
+		margin: 20px 0 0 0;
+	}
+
+	&Subheader {
+		font-size: 18px;
+	}
+}
+
+.TopicSection {
+	padding-left: 4rem;
+	width: 70%;
+	@media (max-width: 1400px) {
+		width: 90%;
+	}
+	@media (max-width: 650px) {
+		padding-left: 2rem;
+	}
+	&Header {
+		font-size: 28px;
+		color: #333;
+	}
+}

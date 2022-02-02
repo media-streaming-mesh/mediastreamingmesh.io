@@ -1,0 +1,326 @@
+$primary-color-100: #000038;
+$primary-color-60: #0051af;
+$primary-color-50: #0076d5;
+$primary-color-20: #00bceb;
+$gray-100: #1b1c1d;
+$gray-80: #606162;
+$gray-70: #939595;
+$gray-60: #a4a5a6;
+$gray-40: #c3c4c5;
+$gray-05: #e6e7e8;
+$gray-0: #f4f5f7;
+$white: #ffffff;
+$alert-color: #e2231a;
+
+@mixin H600 {
+    color: $gray-100;
+	font-family: "CiscoSansTTLight";
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 72px;
+	line-height: 84px;
+	letter-spacing: -1%;
+}
+@mixin H500 {
+    color: $gray-100;
+	font-family: "CiscoSansTTLight";
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 56px;
+	line-height: 64px;
+	letter-spacing: 0%;
+}
+@mixin H400 {
+    color: $gray-100;
+	font-family: "CiscoSansTTLight";
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 48px;
+	line-height: 56px;
+	letter-spacing: 0%;
+}
+
+@mixin H300 {
+    color: $gray-100;
+	font-family: "CiscoSansTTLight";
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 32px;
+	line-height: 40px;
+	letter-spacing: 0%;
+}
+
+@mixin H200 {
+    color: $gray-100;
+	font-family: "CiscoSansTTLight";
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 32px;
+	letter-spacing: 0%;
+}
+
+@mixin H100 {
+    color: $gray-100;
+	font-family: "CiscoSansTTLight";
+	margin: 0;
+	padding: 0;
+	font-weight: 300;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 0%;
+}
+
+@mixin BodyLargeLight {
+    color: $gray-80;
+	padding: 0;
+	font-family: "CiscoSansTTLight";
+	font-weight: 200;
+	font-style: normal;
+	font-size: 20px;
+	line-height: 32px;
+	margin: 16px 0;
+}
+
+@mixin BodyLargeBold {
+    color: $gray-100;
+	margin: 0;
+	padding: 0;
+	font-family: "CiscoSansTTRegular";
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+@mixin BodyMediumBold {
+    color: $gray-100;
+	margin: 0;
+	padding: 0;
+	font-family: "CiscoSansTTRegular";
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+@mixin BodyLarge {
+    color: $gray-100;
+	margin: 0;
+	padding: 0;
+	font-family: "CiscoSansTTLight";
+	font-weight: 300;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+@mixin BodyMedium {
+    color: $gray-100;
+	margin: 0;
+	padding: 0;
+	font-family: "CiscoSansTTLight";
+	font-weight: 300;
+	font-style: normal;
+	font-size: 14px;
+	line-height: 20px;
+}
+@mixin BodySmall {
+    color: $gray-100;
+	margin: 0;
+	padding: 0;
+	font-family: "CiscoSansTTRegular";
+	font-weight: 400;
+	font-style: normal;
+	font-size: 12px;
+	line-height: 16px;
+	letter-spacing: 0.2px;
+}
+
+@mixin ButtonPrimaryLarge {
+    background-color: $primary-color-50;
+    cursor: pointer;
+	border-radius: 48px;
+	font-family: "CiscoSansTTMedium";
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 24px;
+	color: $white;
+	padding: 12px 32px;
+	border: none;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		background-color: $primary-color-60;
+	}
+	&:disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+	}
+}
+
+@mixin ButtonPrimaryMedium {
+    background-color: $primary-color-50;
+    cursor: pointer;
+	border-radius: 48px;
+	font-family: "CiscoSansTTMedium";
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	padding: 12px 24px;
+	color: $white;
+	border: none;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		background-color: $primary-color-60;
+	}
+	&:disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+	}
+}
+
+@mixin ButtonSecondaryLarge {
+    background-color: transparent;
+    cursor: pointer;
+	border-radius: 48px;
+	font-family: "CiscoSansTTMedium";
+	font-weight: normal;
+	border: 1px solid $primary-color-50;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 12px 32px;
+	color: $primary-color-50;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		background-color: $primary-color-60;
+		border: 1px solid $primary-color-60;
+		color: $white;
+	}
+	&:disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+		border: none;
+	}
+}
+
+@mixin ButtonSecondaryMedium {
+    background-color: transparent;
+    cursor: pointer;
+	border-radius: 48px;
+	border: 1px solid $primary-color-50;
+	font-family: "CiscoSansTTMedium";
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 20px;
+	@include BodySmall;
+	padding: 12px 14px;
+	width: 100%;
+	color: $primary-color-50;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		background-color: $primary-color-60;
+		border: 1px solid $primary-color-60;
+		color: $white;
+	}
+	&:disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+		border: none;
+	}
+}
+
+@mixin ButtonInputLarge {
+    background-color: $primary-color-50;
+    cursor: pointer;
+	border-radius: 8px;
+	font-family: "CiscoSansTTMedium";
+	font-weight: normal;
+	border: none;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 12px 32px;
+	color: $white;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		background-color: $primary-color-60;
+	}
+	&:disabled {
+		background-color: $gray-05;
+		color: $gray-70;
+	}
+}
+
+@mixin ButtonTextLarge {
+    display: flex;
+    cursor: pointer;
+	flex-direction: row;
+	align-items: center;
+	// justify-content: center;
+	background-color: transparent;
+	border: none;
+	font-family: "CiscoSansTTLight";
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 24px;
+	color: $primary-color-50;
+	transition: all 0.3s ease-in-out;
+    padding: 0;
+	&:hover {
+		text-decoration: underline;
+		text-underline-offset: 5px;
+		color: $primary-color-60;
+	}
+    &:disabled {
+		color: $gray-60;
+		&:hover {
+			text-decoration: none;
+			cursor: default;
+		}
+	}
+
+	&Disabled {
+		&:hover {
+			text-decoration: none;
+			color: $gray-60;
+		}
+	}
+}
+
+@mixin ButtonTextMedium {
+    display: flex;
+    cursor: pointer;
+	flex-direction: row;
+	align-items: center;
+	// justify-content: center;
+	background-color: transparent;
+	border: none;
+	font-family: "CiscoSansTTLight";
+	font-size: 14px;
+	line-height: 20px;
+	color: $primary-color-50;
+	transition: all 0.3s ease-in-out;
+    padding: 0;
+	&:hover {
+		text-decoration: underline;
+		text-underline-offset: 5px;
+		color: $primary-color-60;
+	}
+
+    &:disabled {
+		color: $gray-60;
+
+		&:hover {
+			text-decoration: none;
+			cursor: default;
+		}
+	}
+}

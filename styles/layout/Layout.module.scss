@@ -1,0 +1,13 @@
+.Layout {
+	padding-top: 150px;
+	min-height: 100vh;
+	&Container {
+		// min-height: 100vh;
+		// display: flex;
+		// flex-direction: column;
+		// justify-content: flex-start;
+		// align-items: center;
+		position: relative;
+	}
+}
+

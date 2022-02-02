@@ -1,0 +1,32 @@
+.Footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #ddd;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 2rem;
+    align-items: center;
+
+    &Logo {
+        width: 150px;
+    }
+
+    &Title {
+        font-size: 18px;
+        font-weight: 400;
+        color: #ccc;
+    }
+
+    &Copyright {
+        font-size: 18px;
+        font-weight: 400;
+        color: #333;
+
+        &Icon {
+            margin-bottom: -3px;
+        }
+    }
+}
