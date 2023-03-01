@@ -14,7 +14,6 @@ import {
 } from "../types/types";
 import {
 	featuresArr,
-	maintainersArr,
 } from "../data/landingPageArrs";
 import SectionHeader from "../components/reusables/SectionHeader";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -162,33 +161,6 @@ const CodeSection = () => {
 						<span>Documentation</span>
 					</a>
 				</Link>
-			</div>
-			<div className={styles.CodeSectionSubSection}>
-				<h3 className={styles.CodeSectionSubheader}>
-					Created by
-				</h3>
-				<div className={styles.CodeSectionSubSectionList}>
-					<IndividualCompanyCard
-						company={{
-							name: "Cisco",
-							logo: ImgPaths.CiscoLogoBlue,
-							link: "https://www.ciscodesignpartners.com/application-networking",
-						}}
-					/>
-				</div>
-			</div>
-			<div className={styles.CodeSectionSubSection}>
-				<h3 className={styles.CodeSectionSubheader}>
-					Maintained by
-				</h3>
-				<div className={styles.CodeSectionSubSectionList}>
-					{maintainersArr.map((maintainer, i) => (
-						<IndividualCompanyCard
-							company={maintainer}
-							key={i}
-						/>
-					))}
-				</div>
 			</div>
 		</div>
 	);

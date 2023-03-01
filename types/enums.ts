@@ -48,7 +48,6 @@ export enum ImgPaths {
 	LogoDarkIconSVG = "/assets/shared/logos/logo-dark-icon-svg.svg",
 	LogoLightHorizontalSVG = "/assets/shared/logos/logo-light-horizontal-svg.svg",
 	LogoLightIconSVG = "/assets/shared/logos/logo-light-icon-svg.svg",
-    CiscoLogoBlue = "/assets/shared/logos/cisco-logo-blue.png",
 }
 
 export enum Colors {

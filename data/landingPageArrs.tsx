@@ -38,11 +38,3 @@ export const featuresArr: IFeatureObj[] = [
 		)}hop.`,
 	},
 ];
-
-export const maintainersArr: ICompanyObj[] = [
-	{
-		name: "Cisco",
-		logo: ImgPaths.CiscoLogoBlue,
-		link: "https://www.ciscodesignpartners.com/application-networking",
-	},
-];
