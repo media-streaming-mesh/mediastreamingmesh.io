@@ -31,7 +31,6 @@ const Home = ({
 			<div className={styles.Home}>
 				<HeroBanner />
 				<FeaturesSection />
-				<VideoSection />
 				<CodeSection />
 			</div>
 		</Layout>
@@ -124,22 +123,22 @@ const IndividualCard = ({
 	);
 };
 
-const VideoSection = () => {
-	return (
-		<div className={styles.VideoSection}>
-			<SectionHeader text={SectionHeaders.VideoSection} />
-			<div className={styles.VideoSectionVideoContainer}>
-				<ReactPlayer
-					url={"/assets/shared/mediastreamingmesh.mp4"}
-					className={styles.VideoSectionVideo}
-					width="100%"
-					height="100%"
-					controls={true}
-				/>
-			</div>
-		</div>
-	);
-};
+//const VideoSection = () => {
+//	return (
+//		<div className={styles.VideoSection}>
+//			<SectionHeader text={SectionHeaders.VideoSection} />
+//			<div className={styles.VideoSectionVideoContainer}>
+//				<ReactPlayer
+//					url={"/assets/shared/mediastreamingmesh.mp4"}
+//					className={styles.VideoSectionVideo}
+//					width="100%"
+//					height="100%"
+//					controls={true}
+//				/>
+//			</div>
+//		</div>
+//	);
+//};
 
 const CodeSection = () => {
 	return (
