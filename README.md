@@ -5,7 +5,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/77afb082-feb4-498c-88cc-eff8fea128ba/deploy-status)](https://app.netlify.com/sites/apiclarity/deploys)
 
 This is the repository for [mediastreamingmesh.io](https://mediastreamingmesh.io/), the website
-containing information on [mediastreamingmesh.io](https://github.com/media-streaming-mesh/mediastreamingmesh.io).
+containing information on [Media Streaming Mesh](https://github.com/media-streaming-mesh/mediastreamingmesh.io).
 
 ## Getting Started
 

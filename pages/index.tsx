@@ -85,8 +85,8 @@ const FeaturesSection = () => {
 						styles.FeaturesSectionShortDescriptionContainerText
 					}
 				>
-					Media Streaming Mesh, enables developers of real time media applications based on RTP,
-					to focus on their business logic whilst the Media Streaming Mesh infrastructure 
+					Media Streaming Mesh enables developers of real time media applications based on RTP
+					to focus on their business logic, whilst the Media Streaming Mesh infrastructure 
 					facilitates real-time connectivity for microservices.
 				</p>
 			</div>
