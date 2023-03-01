@@ -53,7 +53,7 @@ export const useCasesArr: {
 }[] = [
 	{
 		text: `Contribution video - high bandwidth, RTP-based, no tolerance for${String.fromCharCode(
-			220
+			160
 		)}loss/jitter​​​`,
 		icon: (
 			<FcVideoFile className={styles.IndividualCardIcon} />
@@ -76,7 +76,7 @@ export const useCasesArr: {
 	{
 		text: `Collaboration - ${String.fromCharCode(
 			160
-		)}i.e., WebRTC​`,
+		)}e.g., WebRTC​`,
 		icon: (
 			<FcCollaboration className={styles.IndividualCardIcon} />
 		),

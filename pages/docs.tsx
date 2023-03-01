@@ -116,17 +116,23 @@ const Challenges = () => {
 				Any support for UDP that is added to service meshes is likely to be focussed on enabling QUIC (since HTTP/3 runs over QUIC).
 			</p>
 			<p className={styles.DocsPageParagraph}>
-				Real-time applications generally run over UDP rather than TCP.
-				Media Streaming applications typically rely on RTP (the Real-time Transport Protocol) -
+				Real-time applications generally run over UDP rather than TCP.  Media Streaming applications typically rely on RTP (the Real-time Transport Protocol) -
 				which runs on top of UDP, and hence RTP will be the initial focus of Media Streaming Mesh.
 				RTP enables measurement of loss and jitter as it carries sequence numbers and timestamps
 				in the packet header and we will monitor these in Media Streaming Mesh.
 			</p>
 			<p className={styles.DocsPageParagraph}>
 				One challenge with RTP is that it often runs on ephemeral UDP ports which are assigned
-				by a TCP-based control channel such as SIP or RTSP.
-				However proxying these TCP-based protocols will enable us to
-				implement URL/URI-based routing and to map the UDP ports dynamically.
+				by a TCP-based control channel such as SIP or RTSP.  This prevents kube-proxy from being
+				able to successfully implement the ClusterIP NAT for these protocols. 
+				Proxying these TCP-based control plane protocols will enable us both to
+				implement URL/URI-based routing and to create the appropriate RTP proxy rules for the data plane traffic.
+			</p>
+			<p className={styles.DocsPageParagraph}>
+				Another challenge is that many RTP-based applications rely on IP multicast.   Kubernetes networking
+				doesn't generally support IP multicast.   Media Streaming Mesh's per-node RTP proxy will enable us to
+				distribute RTP streams from one sender to multiple receivers over regular IP unicast, and will also enable us
+				to convert from multicast to unicast and vice-versa.
 			</p>
 		</div>
 	);
@@ -136,9 +142,44 @@ const Solution = () => {
 	return (
 		<div>
 			<p className={styles.DocsPageParagraph}>
-				Our current demo implementation relies on a simple Go-based proxy that runs as a pod sidecar
-				(plus a micro-CNI that creates IPtables rules to direct traffic into the sidecar,
-				and a mutating webhook that injects the sidecar proxy into labelled pods).
+				Our current implementation consists of the following components:
+				<ul className={styles.DocsPageList}>
+					<li className={styles.DocsPageListItem}>
+						per-cluster RTSP control plane proxy written in Golang and deployed as a Kubernetes service
+					</li>
+				</ul>
+				<ul className={styles.DocsPageList}>
+					<li className={styles.DocsPageListItem}>
+						per-node RTP data plane proxy written in Golang and deployed as a Kubernetes DaemonSet
+					</li>
+				</ul>
+				<ul className={styles.DocsPageList}>
+					<li className={styles.DocsPageListItem}>
+						per-pod RTSP stub written in asynchronous Rust and deployed as a Kubernetes pod sidecar
+					</li>
+				</ul>
+				<ul className={styles.DocsPageList}>
+					<li className={styles.DocsPageListItem}>
+						mutating webhook which injects the RTSP stub into pods, written in Golang and implemented as a Kubernetes service
+					</li>
+				</ul>
+				<ul className={styles.DocsPageList}>
+					<li className={styles.DocsPageListItem}>
+						chained micro-CNI which adds iptables rules to direct traffic into the RTSP stub, written in Golang and implemented as a Kubernetes DaemonSet
+					</li>
+				</ul>
+			</p>
+			<p className={styles.DocsPageParagraph}>
+				The MSM RTSP Stub is largely reponsible for sending control plane messages to the per-cluster control plane using gRPC.  Because the stub
+				shares fate with the media app in the same pod we avoid any issues around needing to mirror TCP session state to achieve control plane resilience. 
+			</p>
+			<p className={styles.DocsPageParagraph}>
+				The MSM RTSP Stub also provides an interworking function between RTSP interleaved mode (where RTP and RTCP payloads are sent over the RTSP TCP
+				control channel) and the standard RTP/RTCP over UDP mode.
+			</p>
+			<p className={styles.DocsPageParagraph}>
+				For inter and extra-cluster traffic the per-node RTP proxies act as data-plane gateways, and MSM RTSP stubs
+				co-located with the RTP proxies act as control-plane gateways.
 			</p>
 			<p className={styles.DocsPageParagraph}>
 				Longer term our expectation is to implement:
@@ -150,34 +191,35 @@ const Solution = () => {
 				</ul>
 				<ul className={styles.DocsPageList}>
 					<li className={styles.DocsPageListItem}>
-						A per-node RTP data-plane proxy (written in Golang)​
+						A new per-node RTP data plane written in asynchronous Rust and supporting WASM plugins​
 					</li>
 				</ul>
 				<ul className={styles.DocsPageList}>
 					<li className={styles.DocsPageListItem}>
-						A per-cluster RTSP control-plane proxy (also in Golang)​
+						A refactored Golang control plane consisting of:
+						​<ol>
+							<li>pluggable control plane pod supporting multiple protocols</li>
+							<li>network controller pod which maps logical steams onto the physical network</li>
+						</ol>
 					</li>
 				</ul>
 				<ul className={styles.DocsPageList}>
 					<li className={styles.DocsPageListItem}>
-						A per-pod MSM stub that directs traffic into the control plane and data plane
-						(most likely written in Rust).​
+						An enhanced MSM RTSP stub that also supports RTP multicast to RTSP unicast interworking
+					</li>
+				</ul>
+				<ul className={styles.DocsPageList}>
+					<li className={styles.DocsPageListItem}>
+						A stripped-down MSM stub that only supports control plane traffic
 					</li>
 				</ul>
 			</p>
 			<p className={styles.DocsPageParagraph}>
-				With that baseline we will then be able to implement other protocols (such as SIP, RIST, SMTPE 2110, "raw" RTP etc.)
+				With that baseline we hope to empower the community to implement multiple control plane protocols (such as SIP, RIST, SMTPE 2110, WebRTC etc.)
+				and to implement various data-plane plugins enabling features such as FEC (Forward Error Correction), NAK-based error correction, congestion control etc.
 			</p>
 			<p className={styles.DocsPageParagraph}>
-				In order to keep footprint light one key will be to deploy only the required components for the service being implemented.
-			</p>
-			<p className={styles.DocsPageParagraph}>
-				For inter and extra-cluster traffic the per-node RTP/RTSP proxies will act as data-plane gateways,
-				and the per-cluster proxies will act as control-plane gateways.
-			</p>
-			<p className={styles.DocsPageParagraph}>
-				For enhanced performance we may also implement a high-performance data-plane proxy using VPP.
-				This will be especially useful for gateway nodes, and for use-cases involving uncompessed UHD video.
+				In order to keep footprint light one key will be to deploy only the required control plane and data plane components for the service being implemented.
 			</p>
 		</div>
 	);
@@ -191,7 +233,7 @@ const GetInvolved = () => {
 				and for developers to help us create it!
 			</p>
 			<p className={styles.DocsPageParagraph}>
-				Please do join our
+				Please do join our&nbsp;
 				<a
 					className={styles.DocsPageLink}
 					href="https://cloud-native.slack.com/app_redirect?channel=media-streaming-meshl"
