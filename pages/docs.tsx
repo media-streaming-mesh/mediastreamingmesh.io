@@ -236,7 +236,7 @@ const GetInvolved = () => {
 				Please do join our&nbsp;
 				<a
 					className={styles.DocsPageLink}
-					href="https://cloud-native.slack.com/app_redirect?channel=media-streaming-meshl"
+					href="https://cloud-native.slack.com/app_redirect?channel=media-streaming-mesh"
 				>
 					Slack Channel.
 				</a>

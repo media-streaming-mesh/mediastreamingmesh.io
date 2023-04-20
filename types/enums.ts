@@ -20,7 +20,7 @@ export enum BlogMetadata {
 export enum SectionHeaders {
     Resources = "Resources",
     UpcomingEvents = "Events",
-    // VideoSection = "What is Media Streaming Mesh?",
+    VideoSection = "What is Media Streaming Mesh?",
     AboutPageHeader = "Why Media Streaming Mesh?",
     AboutGoals = "Goals of Media Streaming Mesh",
     AboutUseCases = "Media Streaming Mesh Use Cases",
