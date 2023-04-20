@@ -28,7 +28,7 @@
     "react-responsive-carousel": "^3.2.22",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
-    "sass": "^1.49.0",
+    "sass": "^1.62.0",
     "sharp": "^0.31.3",
     "swiper": "^7.4.1",
     "webpack": "^5.75.0"
