@@ -130,7 +130,7 @@ const VideoSection = () => {
 			<SectionHeader text={SectionHeaders.VideoSection} />
 			<div className={styles.VideoSectionVideoContainer}>
 				<ReactPlayer
-					url={"/assets/shared/mediastreamingmesh.mp4"}
+					url={"https://www.youtube.com/watch?v=FQTu_-UT5gw"}
 					className={styles.VideoSectionVideo}
 					width="100%"
 					height="100%"
