@@ -26,7 +26,7 @@
     "react-markdown": "^8.0.7",
     "react-player": "^2.12.0",
     "react-responsive-carousel": "^3.2.23",
-    "remark": "^14.0.2",
+    "remark": "^14.0.3",
     "remark-html": "^15.0.2",
     "sass": "^1.62.0",
     "sharp": "^0.32.0",
