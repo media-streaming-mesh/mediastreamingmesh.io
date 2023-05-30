@@ -31,7 +31,7 @@
     "sass": "^1.62.1",
     "sharp": "^0.32.1",
     "swiper": "^9.3.2",
-    "webpack": "^5.84.0"
+    "webpack": "^5.84.1"
   },
   "devDependencies": {
     "@types/react": "18.2.7",
