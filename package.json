@@ -34,7 +34,7 @@
     "webpack": "^5.87.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.11",
+    "@types/react": "18.2.12",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "typescript": "5.1.3"
