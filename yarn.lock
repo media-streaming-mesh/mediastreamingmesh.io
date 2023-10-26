@@ -4275,10 +4275,10 @@ supports-preserve-symlinks-flag@^1.0.0:
   resolved "https://registry.yarnpkg.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz#6eda4bd344a3c94aea376d4cc31bc77311039e09"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
 
-swiper@^11.0.1:
-  version "11.0.1"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.1.tgz#27f1369212ced1fb494f330709aa1a89a9738efd"
-  integrity sha512-pxVygCS5CVL2pRYSnv8RbjlOC/nN+JrAn5/JM0WBQzIWisv9FYe1s69KEB82TOeqh/T3zc9zks/gxctY6G/XMg==
+swiper@^11.0.2:
+  version "11.0.2"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.2.tgz#34f5e44e8ab2f329239872e6a03f703c8f8e073a"
+  integrity sha512-JMHZYdUDG0V5ZdzWJkQicW4F7u4edmS4vlOhciTDhcZokDL2N8EE2uP4INxqIgpiJMoeHlwATqZk2yEAW7F6Dw==
 
 synckit@^0.8.5:
   version "0.8.5"
