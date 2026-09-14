@@ -1,0 +1,90 @@
+name: Manage and validate Route 53 DNS
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: Apply the GitHub Pages records to Route 53
+        type: boolean
+        default: false
+        required: true
+  schedule:
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: read
+
+env:
+  HOSTED_ZONE_ID: Z017608319UQMQ9K3N0Z7
+  APEX_DOMAIN: mediastreamingmesh.io
+  PAGES_DOMAIN: media-streaming-mesh.github.io
+
+jobs:
+  apply:
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.apply }}
+    name: Apply GitHub Pages DNS records
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: ${{ secrets.AWS_ROUTE53_ROLE_ARN }}
+      - name: Upsert Route 53 records
+        env:
+          AWS_PAGER: ""
+        run: |
+          aws route53 change-resource-record-sets \
+            --hosted-zone-id "$HOSTED_ZONE_ID" \
+            --change-batch '{
+              "Comment": "Point Media Streaming Mesh at GitHub Pages",
+              "Changes": [
+                {
+                  "Action": "UPSERT",
+                  "ResourceRecordSet": {
+                    "Name": "mediastreamingmesh.io.",
+                    "Type": "A",
+                    "TTL": 300,
+                    "ResourceRecords": [
+                      {"Value": "185.199.108.153"},
+                      {"Value": "185.199.109.153"},
+                      {"Value": "185.199.110.153"},
+                      {"Value": "185.199.111.153"}
+                    ]
+                  }
+                },
+                {
+                  "Action": "UPSERT",
+                  "ResourceRecordSet": {
+                    "Name": "www.mediastreamingmesh.io.",
+                    "Type": "CNAME",
+                    "TTL": 300,
+                    "ResourceRecords": [{"Value": "media-streaming-mesh.github.io."}]
+                  }
+                }
+              ]
+            }'
+
+  validate:
+    name: Validate public DNS
+    runs-on: ubuntu-latest
+    needs: apply
+    if: ${{ always() && (needs.apply.result == 'success' || needs.apply.result == 'skipped') }}
+    steps:
+      - name: Install DNS tools
+        run: sudo apt-get update && sudo apt-get install --yes --no-install-recommends dnsutils
+      - name: Verify apex records
+        run: |
+          set -eu
+          expected="185.199.108.153\n185.199.109.153\n185.199.110.153\n185.199.111.153"
+          actual="$(dig +short A "$APEX_DOMAIN" | sort)"
+          printf '%s\n' "$actual"
+          test "$actual" = "$expected"
+      - name: Verify www record
+        run: |
+          set -eu
+          actual="$(dig +short CNAME "www.$APEX_DOMAIN" | sed 's/\\.$//')"
+          test "$actual" = "$PAGES_DOMAIN"
