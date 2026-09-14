@@ -90,5 +90,5 @@ jobs:
       - name: Verify www record
         run: |
           set -eu
-          actual="$(dig +short CNAME "www.$APEX_DOMAIN" | sed 's/\\.$//')"
+          actual="$(dig +short CNAME "www.$APEX_DOMAIN" | sed 's/\.$//')"
           test "$actual" = "$PAGES_DOMAIN"
